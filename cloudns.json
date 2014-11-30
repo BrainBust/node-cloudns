@@ -1,0 +1,38 @@
+{
+	"httpOptions": {
+		"method": "POST",
+		"headers": {
+			"User-Agent": "node-cloudns Client v1.2"
+		},
+		"url": ""
+	},
+	"routes": {
+		"base": "https://api.cloudns.net/dns/",
+		"records": {
+			"list": "records.json",
+			"add": "add-record.json",
+			"remove": "delete-record.json"
+		},
+		"zones": {
+			"list": "list-zones.json",
+			"stats": "get-zones-stats.json",
+			"pages": "get-pages-count.json"
+		},
+		"nameserver": {
+			"list": "available-name-servers",
+			"status": "update-status.json",
+			"updated": "is-updated.json"
+		},
+		"zone": {
+			"remove": "delete.json",
+			"add": "register.json",
+			"axfradd": "axfr-add.json",
+			"axfrremove": "axfr-remove.json",
+			"axfrlist": "axfr-list.json",
+			"masteradd": "add-master-server.json",
+			"masterremove": "delete-master-server.json",
+			"masterlist": "master-servers.json"
+		}
+	}
+
+}
