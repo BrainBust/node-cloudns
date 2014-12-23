@@ -74,11 +74,11 @@ Cl.zonesStats = function (callback) {
 	this.httpOptions.url = this.composeUrl({ }, con.routes.zones.stats)
 	this.postRequest(this.httpOptions, function (error, data) { callback(error, data) })
 }
-Cl.zonesList = function (callback, page, rows) {
+Cl.zonesList = function (page, rows, callback) {
 	this.httpOptions.url = this.composeUrl({ 'page': page, 'rows-per-page': rows }, con.routes.zones.list)
 	this.postRequest(this.httpOptions, function (error, data) { callback(error, data) })
 }
-Cl.zonesSearch = function (callback, page, rows, search) {
+Cl.zonesSearch = function (page, rows, search, callback) {
 	this.httpOptions.url = this.composeUrl({ 'page': page, 'rows-per-page': rows, 'search': search }, con.routes.zones.list)
 	this.postRequest(this.httpOptions, function (error, data) { callback(error, data) })
 }
@@ -105,6 +105,10 @@ Cl.zoneAxfrAdd = function (domain, ip, callback) {
 }
 Cl.zoneAxfrDelete = function (domain, id, callback) {
 	this.httpOptions.url = this.composeUrl({ 'domain-name': domain, 'id': id }, con.routes.zone.axfrremove)
+	this.postRequest(this.httpOptions, function (error, data) { callback(error, data) })
+}
+Cl.zoneAxfrImport = function (domain, server, callback) {
+	this.httpOptions.url = this.composeUrl({ 'domain-name': domain, 'server': server}, con.routes.zone.axfrimport)
 	this.postRequest(this.httpOptions, function (error, data) { callback(error, data) })
 }
 Cl.zoneAxfrList = function (domain, callback) {
@@ -151,11 +155,23 @@ Cl.cloudDomainChangeMaster = function (clouddomain, callback) {
 	this.httpOptions.url = this.composeUrl({ 'domain-name': clouddomain }, con.routes.cloud.remove)
 	this.postRequest(this.httpOptions, function (error, data) { callback(error, data) })
 }
-Cl.cloudDomainList = function (domain, callback) {
+Cl.cloudDomainList = function (domain, clouddomain, callback) {
 	this.httpOptions.url = this.composeUrl({ 'domain-name': domain, 'cloud-domain-name': clouddomain }, con.routes.cloud.list)
 	this.postRequest(this.httpOptions, function (error, data) { callback(error, data) })
 }
 
+Cl.resellerCheckAvailable = function (domain, tld, callback) {
+	this.httpOptions.url = this.composeUrlDomains('name=' + domain + this.composeArray(tld, 'tld[]'), con.routes.reseller.domainavailable)
+	console.log(this.httpOptions.url)
+	this.postRequest(this.httpOptions, function (error, data) { callback(error, data) })
+}
+Cl.composeArray = function (arr, name) {
+	var rearr = ''
+	_.each(arr, function(item) { rearr += '&' + name + '=' + item })
+	return rearr
+}
+Cl.composeUrlDomains = function (source, url) { return this.base.replace('dns', 'domains') + url + '?' + this.composeAuthRaw(source) }
+Cl.composeAuthRaw = function (source) { return qs.stringify({ 'auth-id': this.id, 'auth-password': this.pass}).toString('utf8') + '&' + source }
 Cl.composeUrl = function (source, url) { return this.base + url + '?' + this.composeAuth(source) }
 Cl.composeAuth = function (source) { return qs.stringify({ 'auth-id': this.id, 'auth-password': this.pass}).toString('utf8') + '&' + qs.stringify(source).toString('utf8') }
 Cl.testRecordType = function (recordType) { return (/^(A|CNAME|MX|TXT|SPF|AAAA|NS|SRV|SSHFP|WR|RP|PTR)$/).test(recordType) }
