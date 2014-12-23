@@ -29,9 +29,13 @@
 			"axfradd": "axfr-add.json",
 			"axfrremove": "axfr-remove.json",
 			"axfrlist": "axfr-list.json",
+			"axfrimport": "axfr-import.json",
 			"masteradd": "add-master-server.json",
 			"masterremove": "delete-master-server.json",
 			"masterlist": "master-servers.json"
+		},
+		"reseller": { 
+			"domainavailable": "check-available.json"
 		}
 	}
 }
