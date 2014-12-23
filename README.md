@@ -8,7 +8,7 @@
 > npm install node-cloudns
 
 ```javascript	
-	var cloudns = require('node-cloudns').createClient(authID, authPASS)	
+var cloudns = require('node-cloudns').createClient(authID, authPASS)	
 ```
 
 ##Methods
@@ -90,7 +90,7 @@ cloudns.recordsCopy('domain.com', 'domain.net', 0, function (error, data) {
 	else {}
 })
 ```
-* Change deleteRecords from 0 to 1 to delete copied records from the old domain
+>**Change deleteRecords from 0 to 1 to delete copied records from the old domain**
 ---
 #### SOA Details
 
