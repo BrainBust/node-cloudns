@@ -1,7 +1,3 @@
-node-cloudns
-============
-
-Nodejs Library for https://www.cloudns.net/api-help/
 #node-cloudns
 ============
 
@@ -26,13 +22,13 @@ Nodejs Library for https://www.cloudns.net/api-help/
 >
 >**Note**: This function is available only for master zones. Works with reverse zones too.
 
-** cloudns.recordsList (domain, callback)**
+**cloudns.recordsList (domain, callback)**
 	
 ```javascript
-	cloudns.recordsList('domain.com', function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.recordsList('domain.com', function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
 ---
 #### Add Record
@@ -41,13 +37,13 @@ Nodejs Library for https://www.cloudns.net/api-help/
 >
 >**Note**: This function is available only for master zones. Works with reverse zones too.
 
-** cloudns.recordsAdd (domain, type, params, callback)**
+**cloudns.recordsAdd (domain, type, params, callback)**
 
 ```javascript
-	cloudns.recordsAdd('domain.com', 'A', { record: '127.0.0.1', host: '@', ttl: 300}, function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.recordsAdd('domain.com', 'A', { record: '127.0.0.1', host: '@', ttl: 300}, function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
 ---
 #### Remove Record
@@ -56,13 +52,13 @@ Nodejs Library for https://www.cloudns.net/api-help/
 >
 >**Note**: This function is available only for master zones. Works with reverse zones too.
 
-** cloudns.recordsDelete (domain, id, callback)**
+**cloudns.recordsDelete (domain, id, callback)**
 	
 ```javascript
-	cloudns.recordsDelete('domain.com', 15, function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.recordsDelete('domain.com', 15, function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
 #### Modify Record
 
@@ -74,10 +70,10 @@ Nodejs Library for https://www.cloudns.net/api-help/
 ** cloudns.recordsModify (domain, id, params, callback)**
 	
 ```javascript
-	cloudns.recordsModify('domain.com', 15, { record: '127.0.0.1', host: '@', ttl: 300}, function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.recordsModify('domain.com', 15, { record: '127.0.0.1', host: '@', ttl: 300}, function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
 ---
 #### Copy Records
@@ -89,10 +85,10 @@ Nodejs Library for https://www.cloudns.net/api-help/
 **cloudns.recordsCopy (domain, targetDomain, deleteRecords, callback)**
 
 ```javascript
-	cloudns.recordsCopy('domain.com', 'domain.net', 0, function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.recordsCopy('domain.com', 'domain.net', 0, function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
 * Change deleteRecords from 0 to 1 to delete copied records from the old domain
 ---
@@ -102,13 +98,13 @@ Nodejs Library for https://www.cloudns.net/api-help/
 >
 >**Note**: This function is available only for master zones. Works with reverse zones too.
 
-** cloudns.recordsDetailsSOA(domain, callback)**
+**cloudns.recordsDetailsSOA(domain, callback)**
 
 ```javascript
-	cloudns.recordsDetailsSOA('domain.com', function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.recordsDetailsSOA('domain.com', function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
 ---
 #### Get Dynamic Url
@@ -117,13 +113,13 @@ Nodejs Library for https://www.cloudns.net/api-help/
 >
 >**Note**: This function is available only for A and AAAA record types.
 
-** cloudns.recordsDynamicURL(domain, callback)**
+**cloudns.recordsDynamicURL(domain, callback)**
 
 ```javascript
-	cloudns.recordsDynamicURL('domain.com', function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.recordsDynamicURL('domain.com', function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
 
 ### NameServers
@@ -133,13 +129,13 @@ Nodejs Library for https://www.cloudns.net/api-help/
 > Get a list with available domain name servers.
 >
 
-** cloudns.nameserverList(domain, callback)**
+**cloudns.nameserverList(domain, callback)**
 
 ```javascript
-	cloudns.nameserverList('domain.com', function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.nameserverList('domain.com', function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
 ---
 ### Update Status
@@ -147,13 +143,13 @@ Nodejs Library for https://www.cloudns.net/api-help/
 > Get a list with name servers and information for update status of the domain name. Works with reverse zones too.
 >
 
-** cloudns.nameserverStatus(domain, callback)**
+**cloudns.nameserverStatus(domain, callback)**
 
 ```javascript
-	cloudns.nameserverStatus('domain.com', function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.nameserverStatus('domain.com', function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
 ---
 ### Updated Nameserver Check
@@ -161,11 +157,11 @@ Nodejs Library for https://www.cloudns.net/api-help/
 > Check whether dns zone is updated on all servers. Works with reverse zones too.
 >
 
-** cloudns.nameserverUpdated(domain, callback)**
+**cloudns.nameserverUpdated(domain, callback)**
 
 ```javascript
-	cloudns.nameserverUpdated('domain.com', function (error, data) {
-		if (error) { }
-		else {}
-	})
+cloudns.nameserverUpdated('domain.com', function (error, data) {
+	if (error) { }
+	else {}
+})
 ```
