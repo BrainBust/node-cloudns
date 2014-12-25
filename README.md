@@ -67,7 +67,7 @@ cloudns.recordsDelete('domain.com', 15, function (error, data) {
 >**Note 1**: This function is available only for master zones. Works with reverse zones too.
 >**Note 2**: With this function you can't modify the record type.
 
-** cloudns.recordsModify (domain, id, params, callback)**
+**cloudns.recordsModify (domain, id, params, callback)**
 	
 ```javascript
 cloudns.recordsModify('domain.com', 15, { record: '127.0.0.1', host: '@', ttl: 300}, function (error, data) {
